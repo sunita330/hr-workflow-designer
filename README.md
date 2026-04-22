@@ -6,11 +6,6 @@ A production-grade HR Workflow Designer built with React, TypeScript, and React 
 
 ## Getting Started
 
-```bash
-npm install
-npm run dev
-```
-
 Open [https://hr-workflow-designer-rosy.vercel.app/](https://hr-workflow-designer-rosy.vercel.app/)
 
 **Requirements:** Node.js 18+
