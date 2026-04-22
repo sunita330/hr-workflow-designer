@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Reset & base ────────────────────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #080a10;
+  color: #f0f0f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+/* ── Canvas background gradient ──────────────────────────────────────────── */
+
+.react-flow {
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(91, 124, 246, 0.08) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 85% 80%, rgba(168, 85, 247, 0.05) 0%, transparent 50%),
+              linear-gradient(180deg, #080a10 0%, #060810 100%);
+}
+
+.react-flow__renderer {
+  background: transparent;
+}
+
+.react-flow__edge-path {
+  stroke: rgba(91, 124, 246, 0.4);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(91, 124, 246, 0.2));
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:focus .react-flow__edge-path {
+  stroke: rgba(91, 124, 246, 0.85);
+  filter: drop-shadow(0 0 6px rgba(91, 124, 246, 0.5));
+}
+
+.react-flow__edge-text {
+  fill: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+}
+
+.react-flow__connection-path {
+  stroke: rgba(91, 124, 246, 0.7);
+  stroke-width: 2;
+  filter: drop-shadow(0 0 4px rgba(91, 124, 246, 0.4));
+}
+
+.react-flow__handle {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.5);
+  box-shadow: 0 0 8px currentColor;
+}
+
+.react-flow__controls {
+  box-shadow: none !important;
+}
+
+.react-flow__controls-button {
+  background: rgba(20, 23, 34, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  fill: rgba(255, 255, 255, 0.45) !important;
+  transition: all 0.15s ease !important;
+}
+
+.react-flow__controls-button:hover {
+  background: rgba(30, 34, 50, 0.95) !important;
+  border-color: rgba(91, 124, 246, 0.4) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  fill: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 0 12px rgba(91, 124, 246, 0.2) !important;
+}
+
+.react-flow__minimap {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.07) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  background: rgba(10, 12, 18, 0.9) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* ── Selection box ────────────────────────────────────────────────────────── */
+
+.react-flow__selection {
+  background: rgba(91, 124, 246, 0.04);
+  border: 1px solid rgba(91, 124, 246, 0.35);
+  border-radius: 8px;
+}
+
+/* ── Animated edges — subtle pulse on the flow ───────────────────────────── */
+
+.react-flow__edge-path {
+  stroke-dasharray: 0;
+}
+
+/* ── Select inputs ────────────────────────────────────────────────────────── */
+
+select option {
+  background: #151824;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Date inputs ──────────────────────────────────────────────────────────── */
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(0.3);
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* ── Number inputs ────────────────────────────────────────────────────────── */
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 0.25;
+}
+
+/* ── Smooth font rendering ───────────────────────────────────────────────── */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.react-flow__node.dragging {
+  opacity: 0.65;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+}
+
+/* ── Node entrance animation ─────────────────────────────────────────────── */
+
+.react-flow__node {
+  animation: nodeEnter 0.2s ease-out;
+}
+
+@keyframes nodeEnter {
+  from { opacity: 0; transform: scale(0.92) translateY(6px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);   }
+}
+
+/* ── Select inputs ────────────────────────────────────────────────────────── */
+
+select option {
+  background: #1e2130;
+  color: #f0f0f5;
+}
+
+/* ── Date inputs ──────────────────────────────────────────────────────────── */
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  filter: invert(0.4);
+  cursor: pointer;
+}
+
+/* ── Number inputs ────────────────────────────────────────────────────────── */
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  opacity: 0.3;
+}
